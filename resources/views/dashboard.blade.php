@@ -43,7 +43,7 @@
                     </li>
                 </ul>
                 <div class="d-flex user-logged">
-                    <a href="#">
+                    <a href="{{ url('/logout') }}">
                         Halo, Beatrice!
                         <img src="{{ asset('frontend/assets/images/user_photo.png') }}" class="user-photo" alt="">
                     </a>

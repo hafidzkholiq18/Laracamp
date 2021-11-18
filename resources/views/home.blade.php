@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('/') }}">
                 <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +70,7 @@
                                 Our bootcamp is helping junior developers who <br> are really passionate in the programming.
                             </p>
                             <p class="cta">
-                                <a href="#" class="btn btn-master btn-primary">
+                                <a href="#sectionpricing" class="btn btn-master btn-primary">
                                     Get Started
                                 </a>
                             </p>
@@ -222,7 +222,7 @@
         </div>
     </section>
 
-    <section class="pricing">
+    <section class="pricing" id="sectionpricing">
         <div class="container">
             <div class="row pb-70">
                 <div class="col-lg-5 col-12 header-wrap copywriting">

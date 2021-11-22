@@ -77,12 +77,12 @@
                     </li>
                 </ul>
                 <div class="d-flex user-logged nav-item dropdown no-arrow">
-                    <a href="{{ url('/logout') }}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         Halo, {{ Auth::user()->name }}
                         <img src="{{ asset('frontend/assets/images/user_photo.png') }}" class="user-photo" alt="">
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto">
                             <li>
-                                <a href="#" class="dropdown-item">My Dashboard</a>
+                                <a href="{{ route('dashboard') }}" class="dropdown-item">My Dashboard</a>
                             </li>
                             <li>
                                 <a href="#" class="dropdown-item" onclick="event.preventDefault(); document: getElementById('logout-form'). submit()">Logout</a>

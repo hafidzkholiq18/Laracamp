@@ -42,10 +42,21 @@
                         <a class="nav-link" href="#">Business</a>
                     </li>
                 </ul>
-                <div class="d-flex user-logged">
-                    <a href="{{ url('/logout') }}">
-                        Halo, Beatrice!
+                <div class="d-flex user-logged nav-item dropdown no-arrow">
+                    <a href="#">
+                        Halo, {{ Auth::user()->name }}
                         <img src="{{ asset('frontend/assets/images/user_photo.png') }}" class="user-photo" alt="">
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto">
+                            <li>
+                                <a href="{{ route('dashboard') }}" class="dropdown-item">My Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item" onclick="event.preventDefault(); document: getElementById('logout-form'). submit()">Logout</a>
+                                <form action="{{ route('logout') }}" method="POST" id="logout-form" style="display: none">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                </form>
+                            </li>
+                        </ul>
                     </a>
                 </div>
             </div>

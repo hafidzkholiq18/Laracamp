@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function handleProviderCallback()
     {
-        $callback = Socialite::driver('google')->steteless()->user();
+        $callback = Socialite::driver('google')->stateless()->user();
         $data = [
             'name' => $callback->getName(),
             'email' => $callback->getEmail(),
@@ -32,6 +32,6 @@ class UserController extends Controller
 
         Auth::login($user, true);
 
-        return redirect(route('home'));
+        return redirect(route('/'));
     }
 }

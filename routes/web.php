@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\User\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,24 +20,19 @@ Route::get('/', function () {
     return view('home');
 })->name('/');
 
-Route::get('checkout', function () {
-    return view('checkout');
-})->name('checkout');
-
 Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
 Route::get('auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.login.callback');
 
-Route::get('success', function () {
-    return view('success');
-})->name('success');
+Route::middleware(['auth'])
+    ->group(function () {
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
+        //checkout route
+        Route::get('checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+        Route::get('checkout/{camps:slug}', [CheckoutController::class, 'create'])->name('checkout.create');
+        Route::post('checkout/{camps}', [CheckoutController::class, 'store'])->name('checkout.store');
 
-
-// Route::get('logout', function () {
-//     return view('layouts.navigation');
-// })->name('logout');
+        //user dashboard route
+        Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    });
 
 require __DIR__ . '/auth.php';

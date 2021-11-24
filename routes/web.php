@@ -33,6 +33,7 @@ Route::middleware(['auth'])
 
         //user dashboard route
         Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+        Route::get('dashboard/checkout/invoice/{checkout}', [CheckoutController::class, 'invoice'])->name('checkout.invoice');
     });
 
 require __DIR__ . '/auth.php';

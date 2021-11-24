@@ -37,29 +37,59 @@ Laracamp - Checkout
                                 @csrf
                                 <div class="mb-4">
                                     <label for="name" class="form-label">Full Name</label>
-                                    <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" value="{{ Auth::user()->name }}">
+                                    <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" id="name" aria-describedby="emailHelp" value="{{ Auth::user()->name }}" required>
+                                    @if ($errors->has('name'))
+                                    <p class="text-danger">
+                                      {{ $errors->first('name')}}
+                                    </p>
+                                @endif
                                 </div>
                                 <div class="mb-4">
                                     <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="{{ Auth::user()->email }}">
+                                    <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" id="email" aria-describedby="emailHelp" value="{{ Auth::user()->email }}" required>
+                                    @if ($errors->has('email'))
+                                    <p class="text-danger">
+                                      {{ $errors->first('email')}}
+                                    </p>
+                                @endif
                                 </div>
                                 <div class="mb-4">
                                     <label for="occupation" class="form-label">Occupation</label>
-                                    <input type="text" name="occupation" class="form-control" id="occupation" aria-describedby="emailHelp" value="{{ Auth::user()->occupation }}">
+                                    <input type="text" name="occupation" class="form-control {{ $errors->has('occupation') ? 'is-invalid' : ''}}" id="occupation" aria-describedby="emailHelp" value="{{old('occupation') ? : Auth::user()->occupation }}" required>
+                                    @if ($errors->has('occupation'))
+                                    <p class="text-danger">
+                                      {{ $errors->first('occupation')}}
+                                    </p>
+                                @endif
                                 </div>
                                 <div class="mb-4">
                                     <label for="card_number" class="form-label">Card Number</label>
-                                    <input type="number" name="card_number" class="form-control" id="card_number" aria-describedby="emailHelp">
+                                    <input type="number" name="card_number" class="form-control {{ $errors->has('card_number') ? 'is-invalid' : ''}}" id="card_number" aria-describedby="emailHelp" value="{{old('card_number') ? : '' }}" required>
+                                    @if ($errors->has('card_number'))
+                                    <p class="text-danger">
+                                      {{ $errors->first('card_number')}}
+                                    </p>
+                                @endif
                                 </div>
                                 <div class="mb-5">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
                                             <label for="expaired" class="form-label">Expired</label>
-                                            <input type="date" name="expaired" class="form-control" id="expired" aria-describedby="emailHelp">
+                                            <input type="date" name="expaired" class="form-control {{ $errors->has('expaired') ? 'is-invalid' : ''}}" id="expired" aria-describedby="emailHelp" value="{{old('expaired') ? : '' }}" required>
+                                            @if ($errors->has('expaired'))
+                                            <p class="text-danger">
+                                              {{ $errors->first('expaired')}}
+                                            </p>
+                                        @endif
                                         </div>
                                         <div class="col-lg-6 col-12">
                                             <label for="cvc" class="form-label">CVC</label>
-                                            <input type="number" name="cvc" class="form-control" id="cvc" aria-describedby="emailHelp">
+                                            <input type="number" name="cvc" class="form-control {{ $errors->has('cvc') ? 'is-invalid' : ''}}" id="cvc" aria-describedby="emailHelp" value="{{old('cvc') ? : '' }}" required>
+                                            @if ($errors->has('cvc'))
+                                            <p class="text-danger">
+                                              {{ $errors->first('cvc')}}
+                                            </p>
+                                        @endif
                                         </div>
                                     </div>
                                 </div>

@@ -24,7 +24,7 @@ Route::get('/login', [UserController::class, 'login'])
     ->middleware('guest')
     ->name('login');
 
-Route::get('/login/admin', [AuthenticatedSessionController::class, 'create'])
+Route::get('/admin', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login.admin');
 

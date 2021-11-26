@@ -61,6 +61,8 @@ Laracamp - My Dashboard
                     </tbody>
                 </table>
             </div>
+            <div class="clear"></div>
+            <div class="divider"></div>
         </div>
     </section>
 @endsection
